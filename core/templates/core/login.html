@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в кабинет сотрудника</title>
+</head>
+<body>
+<h1>Вход в кабинет сотрудника</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+  {% if form.errors %}
+    <p style="color: red;">Неверный логин или пароль.</p>
+  {% endif %}
+
+  <p>
+    <label>Логин (username):<br>
+      {{ form.username }}
+    </label>
+  </p>
+
+  <p>
+    <label>Пароль:<br>
+      {{ form.password }}
+    </label>
+  </p>
+
+  <p>
+    <button type="submit">Войти</button>
+  </p>
+</form>
+</body>
+</html>

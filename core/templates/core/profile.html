@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль сотрудника</title>
+</head>
+<body>
+<h1>Профиль сотрудника</h1>
+
+<dl>
+  <dt>ФИО</dt>
+  <dd>{{ employee.full_name }}</dd>
+
+  <dt>Должность</dt>
+  <dd>{{ employee.position|default:"—" }}</dd>
+
+  <dt>Подразделение</dt>
+  <dd>{{ employee.department|default:"—" }}</dd>
+
+  <dt>Телефон</dt>
+  <dd>{{ employee.phone|default:"—" }}</dd>
+
+  <dt>Адрес</dt>
+  <dd>{{ employee.address|default:"—" }}</dd>
+</dl>
+<p>
+  <form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+  </form>
+</p>
+</body>
+</html>
