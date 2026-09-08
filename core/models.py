@@ -35,16 +35,10 @@ class Employee(models.Model):
             max_length=255,
             blank=True
             )
-    max_id = models.CharField(
-            "Max ID",
-            max_length=100,
-            blank=True,
-            help_text="ID пользователя в Max для отправки 2FA-кодов",
-            )
 
     class Meta:
         verbose_name = "Сотрудник"
         verbose_name_plural = "Сотрудники"
 
     def __str__(self) -> str:
-        return self.full_name or str(self.user)
+        return f"{self.full_name}" or str(self.user)
